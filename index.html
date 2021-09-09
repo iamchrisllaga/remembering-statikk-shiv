@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<style>
+			body {
+				color:  white;
+				font-family: monospace;
+				font-size: 3vw;
+				background-size: 100% 100%;
+				background-image: url('https://static.wikia.nocookie.net/leagueoflegends/images/4/4f/Statikk_Shiv_item_HD.png/revision/latest/scale-to-width-down/64?cb=20201104170614');
+			}
+			#updatingTime {
+				padding: 15px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-ms-transform: translateX(-50%) translateY(-50%);
+				-webkit-transform: translate(-50%,-50%);
+				transform: translate(-50%,-50%);
+				display:inline-block;
+				text-align:center;
+			}
+			#setMood {
+				padding: 15px;
+				position: absolute;
+				top: 95%;
+				left: 50%;
+				-ms-transform: translateX(-50%) translateY(-50%);
+				-webkit-transform: translate(-50%,-50%);
+				transform: translate(-50%,-50%);
+				display:inline-block;
+				text-align:center;
+			}
+		</style>
+		<body>
+			<audio autoplay loop>
+				<source src="https://www.mboxdrive.com/sarah%20mclachlan%20-%20i%20will%20remember%20you.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>
+			<div id="updatingTime"></div>
+			<div id="setMood"><input type="image" src="https://static.wikia.nocookie.net/leagueoflegends/images/0/0f/Tear_of_the_Goddess_item_old.png/revision/latest/scale-to-width-down/64?cb=20201104203739" class="btTxt submit" onclick="setMood()"/></div>
+		</body>
+	</head>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
+<script type="text/javascript">
+	function getTime() {
+		now = DateTime.now();
+		timeSince = now.diff(statikkShivRemovedDate, ['years', 'months', 'days', 'hours', 'minutes', 'seconds']).toObject();
+		console.log(timeSince);
+		document.getElementById('updatingTime').innerHTML = [	"It has been...<br>",
+																timeSince.years + " years",
+																timeSince.months + " months",
+																timeSince.days + " days",
+																timeSince.hours + " hours",
+																timeSince.minutes + " minutes",
+																Math.round(timeSince.seconds) + " seconds",
+																"<br>... since Statikk Shiv was removed.",
+																]
+															.join('<br>');
+		setTimeout(getTime, 1000);
+	}
+	var DateTime = luxon.DateTime;
+	var now = DateTime.now();
+	const statikkShivRemovedDate = DateTime.fromObject({year: 2020, month: 11, day: 11, hour: 6}, { zone: 'America/Los_Angeles'})
+	getTime();
+
+    function setMood() {
+    	var sadMusic = new Audio("https://www.mboxdrive.com/sarah%20mclachlan%20-%20i%20will%20remember%20you.mp3");
+    	sadMusic.play();
+    }
+</script>
