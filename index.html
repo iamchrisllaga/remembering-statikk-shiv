@@ -6,7 +6,7 @@
 				font-family: monospace;
 				font-size: 3vw;
 				background-size: 100% 100%;
-				background-image: url('https://static.wikia.nocookie.net/leagueoflegends/images/4/4f/Statikk_Shiv_item_HD.png/revision/latest/scale-to-width-down/64?cb=20201104170614');
+				background-image: url('assets/statikk_shiv.png');
 			}
 			#updatingTime {
 				padding: 15px;
@@ -32,12 +32,8 @@
 			}
 		</style>
 		<body>
-			<audio autoplay loop>
-				<source src="https://www.mboxdrive.com/sarah%20mclachlan%20-%20i%20will%20remember%20you.mp3" type="audio/mp3">
-				Your browser does not support the audio element.
-			</audio>
 			<div id="updatingTime"></div>
-			<div id="setMood"><input type="image" src="https://static.wikia.nocookie.net/leagueoflegends/images/0/0f/Tear_of_the_Goddess_item_old.png/revision/latest/scale-to-width-down/64?cb=20201104203739" class="btTxt submit" onclick="setMood()"/></div>
+			<div id="setMood"><input type="image" src="assets/tear.png" class="btTxt submit" onclick="setMood()"/></div>
 		</body>
 	</head>
 </html>
@@ -66,7 +62,7 @@
 	getTime();
 
     function setMood() {
-    	var sadMusic = new Audio("https://www.mboxdrive.com/sarah%20mclachlan%20-%20i%20will%20remember%20you.mp3");
+    	var sadMusic = new Audio("assets/i_will_remember_you.mp3");
     	sadMusic.play();
     }
 </script>
